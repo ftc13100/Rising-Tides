@@ -11,7 +11,7 @@ class IntakeSubsystem(
         intakeMotor.set(1.0)
     }
 
-    fun outake() {
+    fun outtake() {
 
         intakeMotor.set(-1.0)
     }

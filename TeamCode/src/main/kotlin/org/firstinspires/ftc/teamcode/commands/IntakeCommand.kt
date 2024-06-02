@@ -13,7 +13,7 @@ class IntakeCommand(
             subsystem.intake()
         }
         else {
-            subsystem.outake()
+            subsystem.outtake()
         }
     }
 
