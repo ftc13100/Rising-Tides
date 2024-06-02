@@ -21,17 +21,17 @@ class MainTeleOp: CommandOpMode() {
     private lateinit var driver: GamepadEx
     private lateinit var operator: GamepadEx
     override fun initialize() {
-        intakeMotor = Motor(hardwareMap, ControlBoard.INTAKE.deviceName)
+//        intakeMotor = Motor(hardwareMap, ControlBoard.INTAKE.deviceName)
 
-        intakeSubsystem = IntakeSubsystem(intakeMotor)
+//        intakeSubsystem = IntakeSubsystem(intakeMotor)
 
-        intakeCommand = IntakeCommand(intake = true, intakeSubsystem)
-        outtakeCommand = IntakeCommand(intake = false, intakeSubsystem)
+//        intakeCommand = IntakeCommand(intake = true, intakeSubsystem)
+//        outtakeCommand = IntakeCommand(intake = false, intakeSubsystem)
 
         driver = GamepadEx(gamepad1)
         operator = GamepadEx(gamepad2)
 
-        driver.getGamepadButton(GamepadKeys.Button.RIGHT_BUMPER).whileHeld(intakeCommand)
-        driver.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).whileHeld(outtakeCommand)
+//        driver.getGamepadButton(GamepadKeys.Button.RIGHT_BUMPER).whileHeld(intakeCommand)
+//        driver.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).whileHeld(outtakeCommand)
     }
 }
