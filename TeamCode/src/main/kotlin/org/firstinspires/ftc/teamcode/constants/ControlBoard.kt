@@ -14,5 +14,14 @@ enum class ControlBoard(val deviceName: String) {
     ODO_STRAFE_ENCODER("rightFront"),
 
     // Intake
-    INTAKE("intake")
+    INTAKE("intake"),
+    CONVEYOR("conveyor"),
+
+    //Slides
+
+    SLIDES_LEFT("slidesLeft"),
+    SLIDES_RIGHT("slidesRight");
+
+
+
 }
