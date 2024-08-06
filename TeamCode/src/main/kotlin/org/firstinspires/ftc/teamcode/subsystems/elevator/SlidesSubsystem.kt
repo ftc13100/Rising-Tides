@@ -11,11 +11,12 @@ class SlidesSubsystem(
     rightMotor: Motor,
     private val slidesTouch: TouchSensor,
 ) : SubsystemBase() {
+    private val elevatorMotors = MotorGroup(leftMotor, rightMotor)
+
     init {
-        rightMotor.inverted = true
+        elevatorMotors.inverted = true
     }
 
-    private val elevatorMotors = MotorGroup(leftMotor, rightMotor)
     val isPressed: Boolean
         get() = slidesTouch.isPressed
 

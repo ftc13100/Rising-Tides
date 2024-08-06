@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode.opModes.teleOp
 import com.arcrobotics.ftclib.command.CommandOpMode
 import com.arcrobotics.ftclib.command.ConditionalCommand
 import com.arcrobotics.ftclib.command.InstantCommand
+import com.arcrobotics.ftclib.command.PerpetualCommand
+import com.arcrobotics.ftclib.command.RunCommand
 import com.arcrobotics.ftclib.gamepad.GamepadEx
 import com.arcrobotics.ftclib.gamepad.GamepadKeys
 import com.arcrobotics.ftclib.hardware.motors.Motor
@@ -12,6 +14,7 @@ import com.qualcomm.robotcore.hardware.TouchSensor
 import org.firstinspires.ftc.teamcode.commands.IntakeCommand
 import org.firstinspires.ftc.teamcode.commands.slides.SpinUpCommand
 import org.firstinspires.ftc.teamcode.commands.drive.DriveCommand
+import org.firstinspires.ftc.teamcode.commands.slides.SpinDownCommand
 import org.firstinspires.ftc.teamcode.constants.ControlBoard
 import org.firstinspires.ftc.teamcode.roadrunner.drive.SampleMecanumDrive
 import org.firstinspires.ftc.teamcode.subsystems.drive.DriveSubsystem
@@ -36,7 +39,7 @@ class MainTeleOp: CommandOpMode() {
     private lateinit var intakeCommand: IntakeCommand
     private lateinit var outtakeCommand: IntakeCommand
     private lateinit var spinUpCommand: SpinUpCommand
-    private lateinit var spinDownCommand: SpinUpCommand
+    private lateinit var spinDownCommand: SpinDownCommand
     private lateinit var driveCommand: DriveCommand
     private lateinit var binCommand: ConditionalCommand
 
@@ -61,7 +64,7 @@ class MainTeleOp: CommandOpMode() {
         intakeCommand = IntakeCommand(intake = true, intakeSubsystem)
         outtakeCommand = IntakeCommand(intake = false, intakeSubsystem)
         spinUpCommand = SpinUpCommand(slidesSubsystem)
-        spinDownCommand = SpinUpCommand(slidesSubsystem)
+        spinDownCommand = SpinDownCommand(slidesSubsystem)
         driveCommand = DriveCommand(driveSubsystem, driver::getRightX, driver::getLeftX, driver::getLeftY)
         binCommand = ConditionalCommand(
                 InstantCommand({ binSubsystem.goingBack() }),
@@ -79,5 +82,16 @@ class MainTeleOp: CommandOpMode() {
         register(driveSubsystem)
 
         driveSubsystem.defaultCommand = driveCommand
+
+        PerpetualCommand(
+            RunCommand({
+                telemetry.addData("LeftX: ", driver.leftX)
+                telemetry.addData("LeftY: ", driver.leftY)
+                telemetry.addData("RightX: ", driver.rightX)
+
+                telemetry.update()
+            })
+        ).schedule()
+
     }
 }
