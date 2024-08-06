@@ -18,10 +18,10 @@ enum class ControlBoard(val deviceName: String) {
     CONVEYOR("conveyor"),
 
     //Slides
-
     SLIDES_LEFT("slidesLeft"),
-    SLIDES_RIGHT("slidesRight");
+    SLIDES_RIGHT("slidesRight"),
+    SLIDES_TOUCH("slidesTouch"),
 
-
-
+    // Bin
+    SERVO("binServo")
 }

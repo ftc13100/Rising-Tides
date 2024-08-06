@@ -9,6 +9,9 @@ class DriveCommand (
     private val leftX: () -> Double,
     private val leftY: () -> Double
 ) : CommandBase() {
+    init {
+        addRequirements(subsystem)
+    }
     override fun execute() {
         subsystem.drive(
             leftY = leftY.invoke(),

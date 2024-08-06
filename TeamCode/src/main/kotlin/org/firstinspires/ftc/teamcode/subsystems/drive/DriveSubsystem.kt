@@ -29,7 +29,7 @@ class DriveSubsystem(
     val localizer: Localizer
         get() = drive.localizer
 
-    var poseEstimate: Pose2d
+    private var poseEstimate: Pose2d
         get() = drive.poseEstimate
         set(pose) {
             drive.poseEstimate = pose
