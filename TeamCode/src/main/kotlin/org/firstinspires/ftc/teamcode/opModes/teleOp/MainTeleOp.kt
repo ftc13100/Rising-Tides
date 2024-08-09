@@ -74,10 +74,11 @@ class MainTeleOp: CommandOpMode() {
 
         operator.getGamepadButton(GamepadKeys.Button.RIGHT_BUMPER).whileHeld(intakeCommand)
         operator.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).whileHeld(outtakeCommand)
+
         operator.getGamepadButton(GamepadKeys.Button.DPAD_UP).whileHeld(spinUpCommand)
         operator.getGamepadButton(GamepadKeys.Button.DPAD_DOWN).whileHeld(spinDownCommand)
-        operator.getGamepadButton(GamepadKeys.Button.X).whileHeld(binCommand)
-        operator.getGamepadButton(GamepadKeys.Button.Y).whileHeld(binCommand)
+
+        operator.getGamepadButton(GamepadKeys.Button.X).whenPressed(binCommand)
 
         register(driveSubsystem)
 
@@ -89,6 +90,7 @@ class MainTeleOp: CommandOpMode() {
                 telemetry.addData("LeftY: ", driver.leftY)
                 telemetry.addData("RightX: ", driver.rightX)
 
+                telemetry.addData("Is Pressed? ", slidesSubsystem.isPressed)
                 telemetry.update()
             })
         ).schedule()

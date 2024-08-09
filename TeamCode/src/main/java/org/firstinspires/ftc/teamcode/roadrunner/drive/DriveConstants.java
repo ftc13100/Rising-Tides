@@ -13,8 +13,8 @@ import com.qualcomm.robotcore.hardware.PIDFCoefficients;
  * navigate to https://192.168.49.1:8080/dash). Make sure to save the values here after you
  * adjust them in the dashboard; **config variable changes don't persist between app restarts**.
  *
- * These are not the only parameters; some are located in the localizer classes, drive base classes,
- * and op modes themselves.
+ * These are not the only parameter op modes themss; some are located in the localizer classes, drive base classes,
+ * andelves.
  */
 @Config
 public class DriveConstants {

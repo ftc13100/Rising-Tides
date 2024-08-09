@@ -18,8 +18,10 @@ object ParkOcean {
         val myBot = DefaultBotBuilder(meepMeep) // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
                 .setConstraints(52.48291908330528, 52.48291908330528, Math.toRadians(254.6342747656169), Math.toRadians(176.88528), 13.9)
                 .followTrajectorySequence { drive ->
-                    drive.trajectorySequenceBuilder(Pose2d(-35.0, 62.0, (-90.0).toRadians()))
-                            .forward(120.0)
+                    drive.trajectorySequenceBuilder(Pose2d(-35.0, 62.0, (90.0).toRadians()))
+                            .back(5.0)
+                            .strafeRight(20.0)
+                            .back(115.0)
                             .build()
                 }
         var img: Image? = null

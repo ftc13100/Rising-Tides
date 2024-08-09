@@ -9,13 +9,13 @@ class IntakeSubsystem(
 ) : SubsystemBase() {
 
     fun intake() {
-        intakeMotor.set(0.5)
+        intakeMotor.set(-0.4)
         conveyorMotor.set(1.0)
     }
 
     fun outtake() {
 
-        intakeMotor.set(-0.5)
+        intakeMotor.set(0.4)
         conveyorMotor.set(-1.0)
     }
 

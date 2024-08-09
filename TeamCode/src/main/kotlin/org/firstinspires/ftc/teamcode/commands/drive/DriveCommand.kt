@@ -14,7 +14,7 @@ class DriveCommand (
     }
     override fun execute() {
         subsystem.drive(
-            leftY = leftY.invoke(),
+            leftY = -leftY.invoke(),
             leftX = leftX.invoke(),
             rightX = rightX.invoke()
         )
