@@ -21,12 +21,12 @@ class SlidesSubsystem(
         get() = slidesTouch.isPressed
 
     fun up() {
-        elevatorMotors.set(0.5)
+        elevatorMotors.set(1.0)
     }
 
     fun down() {
         if (!slidesTouch.isPressed) {
-            elevatorMotors.set(-0.5)
+            elevatorMotors.set(-1.0)
         }
     }
 

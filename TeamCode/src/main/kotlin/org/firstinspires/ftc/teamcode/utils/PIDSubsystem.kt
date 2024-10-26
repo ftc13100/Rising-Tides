@@ -4,7 +4,7 @@ import com.arcrobotics.ftclib.command.SubsystemBase
 import com.arcrobotics.ftclib.controller.PIDFController
 
 abstract class PIDSubsystem(
-    private val controller: PIDFController,
+        private var controller: PIDFController,
 ) : SubsystemBase() {
     private var enabled: Boolean = true
     private var setpoint: Double = controller.setPoint
